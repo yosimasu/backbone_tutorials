@@ -6,5 +6,8 @@ Person = Backbone.Model.extend({
     },
     initialize: function() {
         alert("Welcome to this world.");
+    },
+    adopt: function(newChildsName) {
+        this.set({child: newChildsName});
     }
 });
