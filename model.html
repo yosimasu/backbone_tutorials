@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>template</title>
+        <title>model</title>
     </head>
 
     <body>
@@ -15,10 +15,11 @@
         <script src="models/person.js"></script>
 
         <script>
-            var person1 = new Person({name: "Thomas", age: 67}); // constructor arguements
-
-            var person2 = new Person;
-            person2.set({name: "Thomas", age: 67});
+            var person = new Person({name: "Thomas", age: 67, child: "Ryan"});
+            var name = person.get("name");
+            var age = person.get("age");
+            var child = person.get("child");
+            alert("name:" + name + "\nage: " + age + "\nchild: " + child);
         </script>
     </body>
 </html>
