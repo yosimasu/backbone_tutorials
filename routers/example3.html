@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Backbone Router Example</title>
+    </head>
+
+    <body>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+
+        <script type="text/javascript">
+        	AppRouter = Backbone.Router.extend({
+        		routes: {
+                    "posts/:id": "getPost",
+                    "download/*path": "downloadFile",
+        			":route/:action": "loadView"
+        		}
+        	});
+
+        	var app_router = new AppRouter;
+
+            app_router.on("route:getPost", function(id) {
+                alert(id);
+            });
+
+            app_router.on("route:downloadFile", function(path) {
+                alert(path);
+            });
+
+        	app_router.on("route:loadView", function(route, action) {
+        		alert(route + '_' + action);
+        	});
+
+        	Backbone.history.start();
+        </script>
+
+        <a href="#/posts/121">#/posts/121</a><br />
+        <a href="#/download/user/images/hey.gif">#/download/user/images/hey.gif</a><br />
+        <a href="#/dashboard/graph">#/dashboard/graph</a>
+    </body>
+</html>
